@@ -1,6 +1,6 @@
 import conf from "../Config/conf";
 
-import { Client,Account,id, ID } from "appwrite";
+import { Client,Account, ID } from "appwrite";
 
 export class AuthServices{
      client= new Client();
@@ -8,8 +8,8 @@ export class AuthServices{
 
      constructor(){
      this.client
-      .setEndpoint(appwriteProjectUrl)
-      .setProject( appwriteProjectId)
+      .setEndpoint(conf.appwriteProjectUrl)
+      .setProject( conf.appwriteProjectId)
       this.account=new Account(this.client)
      }
      async creataAccount({email,password,name}){
@@ -55,6 +55,6 @@ export class AuthServices{
   }  
 
 
-const authservice= AuthServices()
+const authservice= new AuthServices()
 
 export default authservice
